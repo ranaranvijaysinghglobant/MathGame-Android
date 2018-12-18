@@ -1,0 +1,20 @@
+default_platform(:android)
+
+platform :android do
+
+  desc "Runs all the tests"
+  lane :CI do
+    test
+    createDebugBuild
+  end
+
+  desc "Run all the tests"
+  lane :test do
+    gradle(task: "test")
+  end
+
+  desc "Runs all the tests"
+  lane :createDebugBuild do
+    gradle(task: "assembleDebug")
+  end
+end
