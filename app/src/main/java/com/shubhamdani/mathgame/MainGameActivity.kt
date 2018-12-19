@@ -6,6 +6,7 @@ import android.os.CountDownTimer
 import android.support.v7.app.AppCompatActivity
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import kotlinx.android.synthetic.main.activity_main_game.*
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper

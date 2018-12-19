@@ -5,11 +5,17 @@ platform :android do
   desc "Runs all the tests"
   lane :CI do
     test
+    codeCoverage
     createDebugBuild
   end
 
   desc "Run all the tests"
   lane :test do
+    gradle(task: "test")
+  end
+
+  desc "Create coverage report"
+  lane :codeCoverage do
     gradle(task: "test")
   end
 

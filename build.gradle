@@ -20,6 +20,13 @@ allprojects {
         google()
         jcenter()
     }
+
+    /*sonarqube {
+        properties {
+            property "sonar.language", "java"
+            property "sonar.sources", "src/main"
+        }
+    }*/
 }
 
 task clean(type: Delete) {
