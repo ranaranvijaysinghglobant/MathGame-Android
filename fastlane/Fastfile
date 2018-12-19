@@ -4,9 +4,15 @@ platform :android do
 
   desc "Runs all the tests"
   lane :CI do
+    cleanProject
+    createDebugBuild
     test
     codeCoverage
-    createDebugBuild
+  end
+
+  desc "Clean project"
+  lane :cleanProject do
+    gradle(task: "clean")
   end
 
   desc "Run all the tests"
@@ -16,7 +22,7 @@ platform :android do
 
   desc "Create coverage report"
   lane :codeCoverage do
-    gradle(task: "test")
+    gradle(task: "testDebugUnitTest")
   end
 
   desc "Runs all the tests"
