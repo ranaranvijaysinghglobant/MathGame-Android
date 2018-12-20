@@ -25,14 +25,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-/*
-    sonarqube {
-        properties {
-            property "sonar.java.binaries", "build/intermediates/classes/debug"
-            property "sonar.jacoco.reportPaths", 'build/outputs/code-coverage/connected/', include: '*.ec')
-
-        }
-    }*/
 }
 
 dependencies {
@@ -44,5 +36,6 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    androidTestImplementation 'com.android.support.test:rules:1.0.2'
     implementation 'org.mockito:mockito-core:2.23.4'
 }
