@@ -6,5 +6,6 @@ public interface MainGamePresenter<T> extends BasePresenter<T> {
     void startGame();
     void resetGame();
     void checkValues(@Nullable String value);
+    void nextNumber();
 }
 

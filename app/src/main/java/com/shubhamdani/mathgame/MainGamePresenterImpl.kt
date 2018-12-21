@@ -1,5 +1,6 @@
 package com.shubhamdani.mathgame
 
+import java.lang.NumberFormatException
 import java.util.*
 
 class MainGamePresenterImpl(val views: GameView) : BaseGamePresenter<GameView>(), MainGamePresenter<GameView> {
@@ -28,7 +29,7 @@ class MainGamePresenterImpl(val views: GameView) : BaseGamePresenter<GameView>()
         }
     }
 
-    fun nextNumber() {
+    override fun nextNumber() {
         getView()?.apply {
             restartTimer()
             resetNumber(generateRandomNumber())
@@ -37,15 +38,17 @@ class MainGamePresenterImpl(val views: GameView) : BaseGamePresenter<GameView>()
     }
 
     override fun checkValues(value: String?) {
-        if (value?.length == 4) {
-            if (generateRandomNumber.plus(1111) == value?.toInt()) {
-                scores = scores.plus(1)
-                getView()?.displayThumbsup()
-                getView()?.displayScores(scores)
-            } else {
-                getView()?.displayThumbsDown()
+
+            if (value?.length == 4) {
+                if (generateRandomNumber.plus(1111) == value?.toInt()) {
+                    scores = scores.plus(1)
+                    getView()?.displayThumbsup()
+                    getView()?.displayScores(scores)
+                } else {
+                    getView()?.displayThumbsDown()
+                }
             }
-        }
+
     }
 
     private fun generateRandomNumber(): Int {
