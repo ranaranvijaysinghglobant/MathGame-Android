@@ -1,9 +1,7 @@
 package com.shubhamdani.mathgame;
 
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
@@ -92,21 +90,9 @@ public class MainGamePresenterImplTest {
         presenter.setGenerateRandomNumber(1111);
         presenter.checkValues("2222");
         verify(view).displayThumbsup();
+        verify(view).displayScores(any(Integer.class));
+        assertEquals(1, presenter.getScores());
     }
-
-//
-//    override fun checkValues(value: String?) {
-//        if (value?.length == 4) {
-//            if (generateRandomNumber.plus(1111) == value?.toInt()) {
-//                scores = scores.plus(1)
-//                getView()?.displayThumbsup()
-//                getView()?.displayScores(scores)
-//            } else {
-//                getView()?.displayThumbsDown()
-//            }
-//        }
-//    }
-
 
     @Test
     public void getGenerateRandomNumberTestForNumberLessThan10000() {

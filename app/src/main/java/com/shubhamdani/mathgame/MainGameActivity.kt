@@ -98,6 +98,20 @@ class MainGameActivity : AppCompatActivity(), GameView, CountdownListener, TextW
     override fun attachBaseContext(newBase: Context) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase))
     }
+
+    override fun onResume() {
+        super.onResume()
+        if (!mPresenter.isViewAttached()) {
+            mPresenter.attach(this)
+        }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        if (mPresenter.isViewAttached()) {
+            mPresenter.detach()
+        }
+    }
 }
 
 class Timer(val listener: CountdownListener, val timer: Long = 15000, val interval: Long = 1000) :

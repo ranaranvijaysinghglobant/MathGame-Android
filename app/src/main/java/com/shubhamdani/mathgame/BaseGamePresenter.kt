@@ -2,20 +2,23 @@ package com.shubhamdani.mathgame
 
 import java.lang.ref.WeakReference
 
-abstract class BaseGamePresenter<T>: BasePresenter<T>  {
+open class BaseGamePresenter<T> : BasePresenter<T> {
 
-    lateinit var view: WeakReference<T>
+    lateinit var weakView: WeakReference<T>
 
     override fun attach(view: T) {
-        this.view = WeakReference(view)
+        this.weakView = WeakReference(view)
     }
 
     override fun getView(): T? {
-        return view.get()
+        return weakView.get()
     }
 
-
     override fun detach() {
-        view.clear()
+        weakView.clear()
+    }
+
+    override fun isViewAttached(): Boolean {
+        return weakView.get() != null
     }
 }
