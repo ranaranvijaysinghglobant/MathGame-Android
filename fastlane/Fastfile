@@ -7,7 +7,6 @@ platform :android do
     cleanProject
     createDebugBuild
     unitTest
-    uiTest
     coverageReport
   end
 
