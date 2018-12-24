@@ -6,8 +6,8 @@ platform :android do
   lane :CI do
     cleanProject
     createDebugBuild
-    test
-    codeCoverage
+    unitTest
+    coverageReport
   end
 
   desc "Clean project"
@@ -15,18 +15,19 @@ platform :android do
     gradle(task: "clean")
   end
 
-  desc "Run all the tests"
-  lane :test do
-    gradle(task: "test")
-  end
-
-  desc "Create coverage report"
-  lane :codeCoverage do
-    gradle(task: "testDebugUnitTest")
-  end
-
   desc "Runs all the tests"
   lane :createDebugBuild do
     gradle(task: "assembleDebug")
   end
+
+  desc "Create coverage report"
+  lane :unitTest do
+    gradle(task: "testDebugUnitTest")
+  end
+
+  desc "Run all the tests"
+  lane :coverageReport do
+    gradle(task: "jacocoTestReport")
+  end
+
 end

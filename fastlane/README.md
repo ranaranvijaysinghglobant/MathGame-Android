@@ -21,16 +21,26 @@ or alternatively using `brew cask install fastlane`
 fastlane android CI
 ```
 Runs all the tests
-### android test
+### android cleanProject
 ```
-fastlane android test
+fastlane android cleanProject
 ```
-Run all the tests
+Clean project
 ### android createDebugBuild
 ```
 fastlane android createDebugBuild
 ```
 Runs all the tests
+### android unitTest
+```
+fastlane android unitTest
+```
+Create coverage report
+### android coverageReport
+```
+fastlane android coverageReport
+```
+Run all the tests
 
 ----
 
