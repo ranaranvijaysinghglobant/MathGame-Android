@@ -7,6 +7,7 @@ platform :android do
     cleanProject
     createDebugBuild
     unitTest
+    uiTest
     coverageReport
   end
 
@@ -23,6 +24,11 @@ platform :android do
   desc "Create coverage report"
   lane :unitTest do
     gradle(task: "testDebugUnitTest")
+  end
+
+  desc "Create coverage report"
+  lane :uiTest do
+    gradle(task: "connectedAndroidTest")
   end
 
   desc "Run all the tests"

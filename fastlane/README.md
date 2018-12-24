@@ -36,6 +36,11 @@ Runs all the tests
 fastlane android unitTest
 ```
 Create coverage report
+### android uiTest
+```
+fastlane android uiTest
+```
+Create coverage report
 ### android coverageReport
 ```
 fastlane android coverageReport
